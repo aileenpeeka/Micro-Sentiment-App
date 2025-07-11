@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Brain, Sparkles, Loader2, Smile, Frown } from "lucide-react";
+import { Loader2, Smile, Frown } from "lucide-react";
 import "./index.css";
 
 export default function App() {
@@ -25,14 +25,15 @@ export default function App() {
       {/* Header */}
       <header className="w-full max-w-lg mx-auto text-center mb-8">
         <div className="flex items-center justify-center gap-2 mb-2">
-          <Brain className="w-8 h-8 text-purple-500 drop-shadow" />
+          <span className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 flex items-center justify-center shadow-md">
+            <span className="text-white text-xl font-bold">S</span>
+          </span>
           <h1 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-purple-600 via-pink-500 to-blue-500 bg-clip-text text-transparent tracking-tight">
-            Sentiment AI
+            Sentiment Predictor
           </h1>
         </div>
         <div className="flex items-center justify-center gap-2 text-gray-500 text-base md:text-lg font-medium">
-          <Sparkles className="w-5 h-5 text-pink-400" />
-          <span>Analyze the sentiment of any English text instantly</span>
+          <span>Check the sentiment of any English text</span>
         </div>
       </header>
 
@@ -54,8 +55,8 @@ export default function App() {
           onClick={handlePredict}
           disabled={loading || !text.trim()}
         >
-          {loading ? <Loader2 className="animate-spin w-5 h-5" /> : <Sparkles className="w-5 h-5" />}
-          {loading ? "Analyzing..." : "Analyze"}
+          {loading ? <Loader2 className="animate-spin w-5 h-5" /> : <span className="w-5 h-5" role="img" aria-label="predict">🔎</span>}
+          {loading ? "Analyzing..." : "Predict"}
         </button>
 
         {/* Result */}
